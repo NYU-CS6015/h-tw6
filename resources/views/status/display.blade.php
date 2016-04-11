@@ -4,6 +4,5 @@
     	  <p>{{ $tweet->status }}</p>
         <br/>
     	@endforeach
-    @endsection
    </body>
 </html>
