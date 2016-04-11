@@ -12,6 +12,7 @@
 	<form action='/status/store' method="post">
 	<div class="form-group">
 	<label> Status: </label>
+	<input type="hidden" name="_token" value="{{csrf_token()}}"
 	<input  type="text" class = "form-control" name="status"/>
 	</div>
 	<br/> <br/>
