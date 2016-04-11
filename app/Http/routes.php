@@ -16,4 +16,4 @@ Route::get('/', function () {
 });
 
 Route::get('/status/create','StatusController@create');
-Route::get('/status/store', 'StatusController@store');
+Route::post('/status/store', 'StatusController@store');
