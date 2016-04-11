@@ -22,6 +22,6 @@ class StatusController extends Controller
     public function view()
     {
       $tweets = Status::all();
-      return view('status.display', ['tweets' => $tweets])
+      return view('status.display', ['tweets' => $tweets]);
     }
 }
