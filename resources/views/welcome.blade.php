@@ -38,7 +38,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Team 6</div>
+                <div class="title">Hello Team 6</div>
             </div>
         </div>
     </body>
