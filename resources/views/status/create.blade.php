@@ -9,7 +9,7 @@
 	</style>
 </head>
 <body>
-	<form action='/status/store' method="post">
+	<form action='/status/store' method="get">
 	<div class="form-group">
 	<label> Status: </label>
 	<input  type="text" class = "form-control" name="Status"/>
