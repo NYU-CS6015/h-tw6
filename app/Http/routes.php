@@ -15,5 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/create','StatusController@create');
-Route::get('/store', 'StatusController@store');
+Route::get('/status/create','StatusController@create');
+Route::get('/status/store', 'StatusController@store');
