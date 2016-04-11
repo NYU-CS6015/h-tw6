@@ -16,7 +16,7 @@ class StatusController extends Controller
     {
       $new_status = new Status;
       $new_status->status = $request->input('status');
-      $new_status->id = User::find(Auth::user()->id)->name;
+      $new_status->id = Auth::user()->id;
       $new_status->save();
     }
 

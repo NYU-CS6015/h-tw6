@@ -1,7 +1,7 @@
 <html>
    <body>
     	@foreach ($tweets as $tweet)
-        <p> {{ $tweet->user_id}} </p>
+        <p> {{ User::find($tweet->user_id)->name}} </p>
     	  <p>{{ $tweet->status }}</p>
         <br/>
     	@endforeach
