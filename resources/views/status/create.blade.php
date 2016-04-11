@@ -12,7 +12,7 @@
 	<form action='/status/store' method="post">
 	<div class="form-group">
 	<label> Status: </label>
-	<input  type="text" class = "form-control" name="Status"/>
+	<input  type="text" class = "form-control" name="status"/>
 	</div>
 	<br/> <br/>
 	<input type="submit" name="Submit" class="btn btn-success"/> </center>
