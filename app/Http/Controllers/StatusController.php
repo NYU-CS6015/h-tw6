@@ -18,4 +18,10 @@ class StatusController extends Controller
       $new_status->status = $request->input('status');
       $new_status->save();
     }
+
+    public function view()
+    {
+      $tweets = Status::all();
+      return view('status.display', ['tweets' => $tweets])
+    }
 }
