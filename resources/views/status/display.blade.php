@@ -1,8 +1,8 @@
 <html>
    <body>
     	@foreach ($tweets as $tweet)
-        <p> {{ App\User::find($tweet->user_id)->name}} </p>
-    	  <p>{{ $tweet->status }}</p>
+        <p> User id: {{ $tweet->user_id}} </p>
+    	  <p>Tweet: {{ $tweet->status }}</p>
         <br/>
     	@endforeach
    </body>
