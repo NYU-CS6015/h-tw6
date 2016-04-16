@@ -54,20 +54,23 @@ class FollowerController extends Controller
           				'follow_id' => $followId)
     					);
 
-       $followersId = DB::table('followers')
+       $followers = DB::table('followers')
     					->where('user_id','!=',$userId)	
     					->get();
+    	foreach($followers as $follower){
+    		$followersId = $followers->$follow_id;
+    	}
 
         $follow = DB::table('users')
-    					->whereNotIn('id',$followersId->follow_id)	
+    					->whereNotIn('id',$followersId)	
     					->get();
 
     	//if($followersId){
- 			$followers = count($followersId);
+ 			$followersCount = count($followers);
     	//}
 
     	if($follow){
-    		return view('follow',['follow' => $follow, 'followers' => $followers]);
+    		return view('follow',['follow' => $follow, 'followers' => $followers,'followersCount'=> $followersCount]);
     	}
     	
     }
