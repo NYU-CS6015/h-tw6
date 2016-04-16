@@ -18,8 +18,9 @@ class FollowerController extends Controller
         	$userId = Auth::user()->id;
         }
 
-        $followers = DB::table('followers')
-    					->where('user_id','==',$userId)	
+       #current total followers
+       $followers = DB::table('followers')
+    					->where('user_id','=',$userId)	
     					->get();
 
     	$followersId = array();
@@ -31,31 +32,11 @@ class FollowerController extends Controller
     	#recommendation to follow these users
         $follow = DB::table('users')
     					->whereNotIn('id',$followersId)
-    					->where('id','!=',$userId)
     					->get();
 
-    	
  			$followersCount = count($followersId);
     	
-
-       /* $followersId = DB::table('followers')
-    					->where('user_id','=',$user->id)	
-    					->get();
-
-        $follow = DB::table('users')
-//    					->where('id','!=' ,$followersId)
-    					->where('id','!=',$user->id)	
-    					->get();
-
-    	//$follow = $tempFollow ->except($user->id);
-
-    	//if($followersId){
- 			$followers = count($followersId);
-    	//}
-    	// $followers = DB::table('followers')
-    	// 				->where('user_id','=',$user->id)	
-    	// 				->count();
-*/
+    	
     	if($follow){
     		return view('follow',['follow' => $follow, 'followers' => $followers,'followersCount'=> $followersCount]);
     	}
