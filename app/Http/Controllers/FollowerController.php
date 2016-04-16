@@ -59,6 +59,7 @@ class FollowerController extends Controller
     					->get();
 
     	$followersId = array();
+    	
     	foreach($followers as $follower){
     		$followersId[] = $follower->follow_id;
     	}

@@ -14,17 +14,5 @@
 
 	    	<p> Number of followers you have: {{$followersCount}} </p>
 
-	    	@if($followers)
-		    	@foreach ($followers as $user)
-		        <p> User id: {{ $user->id}} <br/>
-		       	User name: {{ $user->name}} </p>
-		       	<form action="/follow" method="post">
-			    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-			    <input type="hidden" name="userId" value = {{ $user->id }}></input>
-			    <input type="submit" value="UnFollow"></input>
-			   </form>
-		        <br/>
-		    	@endforeach
-	    	@end
    </body>
 </html>
