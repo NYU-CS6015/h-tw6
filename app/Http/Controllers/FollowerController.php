@@ -13,10 +13,14 @@ class FollowerController extends Controller
     //
      public function followers()
     {
-        $user = Auth::user();
+    	if (Auth::check())
+    	{
+        	$userId = Auth::user()->id;
+        }
         $followers = DB::table('followers')
-    					->where('user_id','=',$user)	
+    					->where('user_id','=',$userId)	
     					->get();
+    	
     	if($followers){
     		return view('follow',['followers' => $followers]);
     	}
@@ -24,7 +28,10 @@ class FollowerController extends Controller
 
 	public function follow()
     {
-        $user = Auth::user();
+    	if (Auth::check())
+		{
+        	$user = Auth::user();
+        }
         $follow = DB::table('users')
     					->where('user_id','!=',$user->id)	
     					->get();
