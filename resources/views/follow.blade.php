@@ -19,8 +19,8 @@
 	    	<br/>
 	    	<br/>
 
-	    	@if($followers)
-		    	@foreach ($followers as $user)
+	    	@if($followersDetail)
+		    	@foreach ($followersDetail as $user)
 		        <p> User id: {{ $user->id}} <br/>
 		       	User name: {{ $user->name}} </p>
 		       	<form action="/follow" method="post">
@@ -29,8 +29,9 @@
 			    <input type="submit" value="UnFollow"></input>
 			   </form>
 		        <br/>
-		    	@endforeach
-	    	@endif
+		    @endif
+		    @endforeach
+	    	
 	    	
    </body>
 </html>
