@@ -37,7 +37,7 @@ class FollowerController extends Controller
     					->get();
 
     	$followers = DB::table('followers')
-    					->where('user_id','=',$userId)	
+    					->where('user_id','=',$user->id)	
     					->count();
 
     	if($follow){
