@@ -29,8 +29,8 @@
 			    <input type="submit" value="UnFollow"></input>
 			   </form>
 		        <br/>
-		    @endif
 		    @endforeach
+		    @endif
 	    	
 	    	
    </body>
