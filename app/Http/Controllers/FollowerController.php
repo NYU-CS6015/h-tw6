@@ -23,7 +23,7 @@ class FollowerController extends Controller
     					->get();
 
         $follow = DB::table('users')
-    					->where('id','!=' ,$followersId)
+//    					->where('id','!=' ,$followersId)
     					->where('id','!=',$user->id)	
     					->get();
 
