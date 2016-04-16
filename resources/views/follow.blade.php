@@ -11,7 +11,7 @@
 		    <input type="submit" value="Follow"></input>
 		   </form>
 	        <br/>
-	        @end
+	        @endif
 	    	@endforeach
 
 	    	<p> Number of followers you have: {{$followersCount}} </p>
