@@ -81,4 +81,44 @@ class FollowerController extends Controller
     	
     }
 
+    public function unfollowUser(Request $request)
+    {
+    	if (Auth::check())
+    	{
+        	$userId = Auth::user()->id;
+        }
+        $unfollowId = $request->input('userId');
+
+        $whereArray = ['user_id' => $userId, 'follow_id' => $unfollowId];
+
+        #database query to insert the user to be followed 
+        $unfollowUser = DB::table('followers')
+        				->where($whereArray)
+        				->delete();
+
+        #current total followers
+       $followers = DB::table('followers')
+    					->where('user_id','=',$userId)	
+    					->get();
+
+    	$followersId = array();
+
+    	foreach($followers as $follower){
+    		$followersId[] = $follower->follow_id;
+    	}
+
+    	#recommendation to follow these users
+        $follow = DB::table('users')
+    					->whereNotIn('id',$followersId)
+    					->get();
+
+ 			$followersCount = count($followersId);
+    	
+
+    	if($follow){
+    		return view('follow',['follow' => $follow, 'followersCount'=> $followersCount,'followers' => $followers]);
+    	}
+    	
+    }
+
 }
