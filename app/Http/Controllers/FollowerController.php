@@ -15,7 +15,7 @@ class FollowerController extends Controller
     {
     	if (Auth::check())
 		{
-        	$user = Auth::user();
+        	$userId = Auth::user()->id;
         }
 
         $followers = DB::table('followers')
