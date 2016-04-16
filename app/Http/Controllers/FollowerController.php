@@ -77,7 +77,7 @@ class FollowerController extends Controller
 
         #current total followers
        $followers = DB::table('followers')
-    					->where('user_id','==',$userId)	
+    					->where('user_id','=',$userId)	
     					->get();
 
     	$followersId = array();
