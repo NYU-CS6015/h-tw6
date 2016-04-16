@@ -86,7 +86,7 @@ class FollowerController extends Controller
     	
 
     	if($follow){
-    		return view('follow',['follow' => $follow, 'followersCount'=> $followersCount,'followers' => $followersDetail]);
+    		return view('follow',['follow' => $follow, 'followersCount'=> $followersCount,'followersDetail' => $followersDetail]);
     	}
     	
     }
@@ -131,7 +131,7 @@ class FollowerController extends Controller
     	
 
     	if($follow){
-    		return view('follow',['follow' => $follow, 'followersCount'=> $followersCount,'followers' => $followersDetail]);
+    		return view('follow',['follow' => $follow, 'followersCount'=> $followersCount,'followersDetail' => $followersDetail]);
     	}
     	
     }
