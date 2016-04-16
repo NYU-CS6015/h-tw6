@@ -59,7 +59,7 @@ class FollowerController extends Controller
     					->get();
 
     	$followersId = array();
-    	
+
     	foreach($followers as $follower){
     		$followersId[] = $follower->follow_id;
     	}
@@ -73,7 +73,7 @@ class FollowerController extends Controller
     	//}
 
     	if($follow){
-    		return view('follow',['follow' => $follow, 'followers' => $followers,'followersCount'=> $followersCount]);
+    		return view('follow',['follow' => $follow, 'followersCount'=> $followersCount,'followers' => $followers,]);
     	}
     	
     }
