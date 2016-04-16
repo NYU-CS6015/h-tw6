@@ -34,9 +34,9 @@ class FollowerController extends Controller
     					->where('id','!=',$userId)
     					->get();
 
-    	if($followers){
+    	
  			$followersCount = count($followersId);
-    	}
+    	
 
        /* $followersId = DB::table('followers')
     					->where('user_id','=',$user->id)	
@@ -92,9 +92,9 @@ class FollowerController extends Controller
     					->where('id','!=',$userId)
     					->get();
 
-    	if($followers){
+    
  			$followersCount = count($followersId);
-    	}
+    	
 
     	if($follow){
     		return view('follow',['follow' => $follow, 'followersCount'=> $followersCount,'followers' => $followers]);
