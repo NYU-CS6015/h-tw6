@@ -85,13 +85,12 @@ class FollowerController extends Controller
     	foreach($followers as $follower){
     		$followersId[] = $follower->follow_id;
     	}
+    	$followersId[] = $userId;
 
     	#recommendation to follow these users
         $follow = DB::table('users')
     					->whereNotIn('id',$followersId)
     					->get();
-
-    	$follow->forget($userId);
     
  			$followersCount = count($followersId);
     	
