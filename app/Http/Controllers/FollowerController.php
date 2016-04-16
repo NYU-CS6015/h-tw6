@@ -33,7 +33,7 @@ class FollowerController extends Controller
         	$user = Auth::user();
         }
         $follow = DB::table('users')
-    					->where('user_id','!=',$user->id)	
+    					->where('id','!=',$user->id)	
     					->get();
     	if($followers){
     		return view('follow',['follow' => $follow]);
