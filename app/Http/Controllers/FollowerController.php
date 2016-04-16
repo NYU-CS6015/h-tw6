@@ -59,7 +59,7 @@ class FollowerController extends Controller
     					->get();
 
         $follow = DB::table('users')
-    					->where('id','!=',$followersId->follow_id)	
+    					->whereNotIn('id',$followersId->follow_id)	
     					->get();
 
     	//if($followersId){
