@@ -91,6 +91,7 @@ class FollowerController extends Controller
     					->whereNotIn('id',$followersId)
     					->get();
 
+    	$follow->forget($userId);
     
  			$followersCount = count($followersId);
     	
