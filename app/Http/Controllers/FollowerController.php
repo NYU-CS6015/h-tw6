@@ -55,7 +55,7 @@ class FollowerController extends Controller
     					);
 
        $followersId = DB::table('followers')
-    					->where('user_id','=',$user->id)	
+    					->where('user_id','=',$userId)	
     					->get();
 
         $follow = DB::table('users')
