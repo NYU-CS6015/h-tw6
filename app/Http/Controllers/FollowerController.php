@@ -29,9 +29,9 @@ class FollowerController extends Controller
 
     	//$follow = $tempFollow ->except($user->id);
 
-    	if($followersId){
+    	//if($followersId){
  			$followers = count($followersId);
-    	}
+    	//}
     	// $followers = DB::table('followers')
     	// 				->where('user_id','=',$user->id)	
     	// 				->count();
