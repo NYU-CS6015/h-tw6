@@ -2,7 +2,8 @@
    <body>
    		Follow your friends :
 	    	@foreach ($follow as $user)
-	        <p> User id: {{ $user->user_id}} </p>
+	        <p> User id: {{ $user->id}} <br/>
+	       	User name: {{ $user->name}} </p>
 	        <br/>
 	    	@endforeach
    </body>
