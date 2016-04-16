@@ -22,11 +22,12 @@ class FollowerController extends Controller
     					->where('user_id','=',$user->id)	
     					->get();
 
-        $tempFollow = DB::table('users')
-    					->whereNotIn('id',$followersId)	
+        $follow = DB::table('users')
+    					->where('id','!=' ,$followersId)
+    					->where('id','!=',$user->id)	
     					->get();
 
-    	$follow = $tempFollow ->except($user->id);
+    	//$follow = $tempFollow ->except($user->id);
 
     	if($followersId){
  			$followers = count($followersId);
