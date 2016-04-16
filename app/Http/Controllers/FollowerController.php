@@ -18,7 +18,27 @@ class FollowerController extends Controller
         	$user = Auth::user();
         }
 
-        $followersId = DB::table('followers')
+        $followers = DB::table('followers')
+    					->where('user_id','==',$userId)	
+    					->get();
+
+    	$followersId = array();
+
+    	foreach($followers as $follower){
+    		$followersId[] = $follower->follow_id;
+    	}
+
+    	#recommendation to follow these users
+        $follow = DB::table('users')
+    					->whereNotIn('id',$followersId)
+    					->where('id','!=',$userId)
+    					->get();
+
+    	if($followers){
+ 			$followersCount = count($followersId);
+    	}
+
+       /* $followersId = DB::table('followers')
     					->where('user_id','=',$user->id)	
     					->get();
 
@@ -35,9 +55,9 @@ class FollowerController extends Controller
     	// $followers = DB::table('followers')
     	// 				->where('user_id','=',$user->id)	
     	// 				->count();
-
+*/
     	if($follow){
-    		return view('follow',['follow' => $follow, 'followers' => $followers]);
+    		return view('follow',['follow' => $follow, 'followers' => $followers,'followersCount'=> $followersCount]);
     	}
     }
 
