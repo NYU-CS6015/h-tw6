@@ -12,8 +12,6 @@
 	        <br/>
 	    	@endforeach
 
-	    	@if($followersCount != '')
-	    	<p> Number of followers you have: {{$followersCount}} </p>
-	    	@endif
+	    	
    </body>
 </html>
