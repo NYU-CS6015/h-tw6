@@ -1,8 +1,8 @@
 <html>
    <body>
-   		Follow your friends :
 	    	@foreach ($follow as $user)
 	    	@if ($user->id != Auth::user()->id)
+	    	Follow your friends :
 	        <p> User id: {{ $user->id}} <br/>
 	       	User name: {{ $user->name}} </p>
 	       	<form action="/follow" method="post">
