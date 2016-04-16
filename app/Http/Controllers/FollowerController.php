@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 use Auth;
 
 class FollowerController extends Controller
@@ -12,7 +13,7 @@ class FollowerController extends Controller
     //
      public function followers()
     {
-        $user = Auth::user()->id;
+        $user = Auth::user();
         $followers = DB::table('followers')
     					->where('user_id','=',$user)	
     					->get();
@@ -23,9 +24,9 @@ class FollowerController extends Controller
 
 	public function follow()
     {
-        $user = Auth::user()->id;
+        $user = Auth::user();
         $follow = DB::table('users')
-    					->where('user_id','!=',$user)	
+    					->where('user_id','!=',$user->id)	
     					->get();
     	if($followers){
     		return view('follow',['follow' => $follow]);
