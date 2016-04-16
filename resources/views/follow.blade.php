@@ -1,10 +1,9 @@
 <html>
    <body>
-   		@if($follow!='')
+
    			Follow your friends :
 	    	@foreach ($follow as $user)
 	    	@if ($user->id != Auth::user()->id)
-	    	
 	        <p> User id: {{ $user->id}} <br/>
 	       	User name: {{ $user->name}} </p>
 	       	<form action="/follow" method="post">
@@ -15,8 +14,7 @@
 	        <br/>
 	        @endif
 	    	@endforeach
-	    @endif
-	    
+
 	    	<p> Number of followers you have: {{$followersCount}} </p>
 	    	<br/>
 	    	<br/>
