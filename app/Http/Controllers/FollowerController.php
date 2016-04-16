@@ -11,38 +11,64 @@ use DB;
 class FollowerController extends Controller
 {
     //
-     public function followers()
-    {
-    	if (Auth::check())
-    	{
-        	$userId = Auth::user()->id;
-        }
-        $followers = DB::table('followers')
-    					->where('user_id','=',$userId)	
-    					->get();
-    	
-    	if($followers){
-    		return view('follow',['followers' => $followers]);
-    	}
-    }
-
 	public function follow()
     {
     	if (Auth::check())
 		{
         	$user = Auth::user();
         }
-        $follow = DB::table('users')
-    					->where('id','!=',$user->id)	
+
+        $followersId = DB::table('followers')
+    					->where('user_id','=',$user->id)	
     					->get();
 
-    	$followers = DB::table('followers')
-    					->where('user_id','=',$user->id)	
-    					->count();
+        $tempFollow = DB::table('users')
+    					->whereNotIn('id',$followersId)	
+    					->get();
+
+    	$follow = $tempFollow ->except($user->id);
+
+    	if($followersId){
+ 			$followers = count($followersId);
+    	}
+    	// $followers = DB::table('followers')
+    	// 				->where('user_id','=',$user->id)	
+    	// 				->count();
 
     	if($follow){
     		return view('follow',['follow' => $follow, 'followers' => $followers]);
     	}
+    }
+
+     public function followUser(Request $request)
+    {
+    	if (Auth::check())
+    	{
+        	$userId = Auth::user()->id;
+        }
+        $followId = $request->input('userId');
+
+        $followUser = DB::table('followers')->insert(
+    					array('user_id' => $userId,
+          				'follow_id' => $followId)
+    					);
+
+       $followersId = DB::table('followers')
+    					->where('user_id','=',$user->id)	
+    					->get();
+
+        $follow = DB::table('users')
+    					->whereNotIn('id',$followersId)	
+    					->get();
+
+    	if($followersId){
+ 			$followers = count($followersId);
+    	}
+
+    	if($follow){
+    		return view('follow',['follow' => $follow, 'followers' => $followers]);
+    	}
+    	
     }
 
 }
