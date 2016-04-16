@@ -69,7 +69,7 @@ class FollowerController extends Controller
     	#recommendation to follow these users
         $follow = DB::table('users')
     					->whereNotIn('id',$followersId)
-    					->where('id','!=',$userId);	
+    					->where('id','!=',$userId)
     					->get();
 
     	//if($followersId){
