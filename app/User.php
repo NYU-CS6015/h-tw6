@@ -28,4 +28,14 @@ class User extends Authenticatable
     {
       return $this->hasMany('App\Status');
     }
+
+    public function followers()
+    {
+        return $this->belongsToMany('User', 'followers', 'follow_id', 'user_id')->withTimestamps();
+    }
+
+    public function following()
+    {
+        return $this->belongsToMany('User', 'followers', 'user_id', 'follow_id')->withTimestamps();
+    }
 }

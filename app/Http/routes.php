@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::get('/status/create','StatusController@create');
 Route::post('/status/store', 'StatusController@store');
 Route::get('/status/display', 'StatusController@view');
+Route::get('/follow', 'FollowController@follow');
 
 Route::auth();
 
