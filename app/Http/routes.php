@@ -19,7 +19,7 @@ Route::get('/status/create','StatusController@create');
 Route::post('/status/store', 'StatusController@store');
 Route::get('/status/display', 'StatusController@view');
 Route::get('/follow', 'FollowerController@follow');
-Route::post('/follow','FollowerController@');
+Route::post('/follow','FollowerController@followUser');
 
 Route::auth();
 
