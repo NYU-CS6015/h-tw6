@@ -12,7 +12,7 @@
 	        <br/>
 	    	@endforeach
 
-	    	<p> Number of followers you have: {{$followersCount}} </p>
+	    	
 
    </body>
 </html>
