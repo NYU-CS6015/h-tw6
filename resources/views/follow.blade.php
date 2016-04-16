@@ -6,7 +6,7 @@
 	       	User name: {{ $user->name}} </p>
 	       	<form action="/follow" method="post">
 		    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-		     <input type="hidden" name="userId" value = {{ $user->id }}></input>
+		     <input type="hidden" name="userId" value = "{{$user->id}}"></input>
 		    <input type="submit" value="Follow"></input>
 		   </form>
 	        <br/>
