@@ -49,13 +49,15 @@ class FollowerController extends Controller
         }
         $followId = $request->input('userId');
 
+        #database query to insert the user to be followed 
         $followUser = DB::table('followers')->insert(
     					array('user_id' => $userId,
           				'follow_id' => $followId)
     					);
 
+        #current total followers
        $followers = DB::table('followers')
-    					->where('user_id','!=',$userId)	
+    					->where('user_id','==',$userId)	
     					->get();
 
     	$followersId = array();
@@ -64,8 +66,10 @@ class FollowerController extends Controller
     		$followersId[] = $follower->follow_id;
     	}
 
+    	#recommendation to follow these users
         $follow = DB::table('users')
-    					->whereNotIn('id',$followersId)	
+    					->whereNotIn('id',$followersId)
+    					->where('id','!=',$userId);	
     					->get();
 
     	//if($followersId){
