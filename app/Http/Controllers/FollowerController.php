@@ -29,6 +29,11 @@ class FollowerController extends Controller
     		$followersId[] = $follower->follow_id;
     	}
 
+    	#to get details of a follower from user table
+    	$followersDetail = DB::table('users')
+    					->whereIn('id',$followersId)
+    					->get();
+
     	#recommendation to follow these users
         $follow = DB::table('users')
     					->whereNotIn('id',$followersId)
@@ -66,6 +71,11 @@ class FollowerController extends Controller
     	foreach($followers as $follower){
     		$followersId[] = $follower->follow_id;
     	}
+
+    	#to get details of a follower from user table
+    	$followersDetail = DB::table('users')
+    					->whereIn('id',$followersId)
+    					->get();
 
     	#recommendation to follow these users
         $follow = DB::table('users')
@@ -107,6 +117,11 @@ class FollowerController extends Controller
     		$followersId[] = $follower->follow_id;
     	}
 
+    	#to get details of a follower from user table
+    	$followersDetail = DB::table('users')
+    					->whereIn('id',$followersId)
+    					->get();
+
     	#recommendation to follow these users
         $follow = DB::table('users')
     					->whereNotIn('id',$followersId)
@@ -116,7 +131,7 @@ class FollowerController extends Controller
     	
 
     	if($follow){
-    		return view('follow',['follow' => $follow, 'followersCount'=> $followersCount,'followers' => $followers]);
+    		return view('follow',['follow' => $follow, 'followersCount'=> $followersCount,'followers' => $followersDetail]);
     	}
     	
     }
