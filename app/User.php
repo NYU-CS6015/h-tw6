@@ -29,13 +29,14 @@ class User extends Authenticatable
       return $this->hasMany('App\Status');
     }
 
-    public function followers()
+    public function follows()
     {
-        return $this->belongsToMany('User', 'followers', 'follow_id', 'user_id')->withTimestamps();
+        // return $this->hasMany('User', 'followers', 'follow_id', 'user_id')->withTimestamps();
+        return $this->hasMany('App\Follow');
     }
 
-    public function following()
-    {
-        return $this->belongsToMany('User', 'followers', 'user_id', 'follow_id')->withTimestamps();
-    }
+    // public function following()
+    // {
+    //     return $this->belongsToMany('User', 'followers', 'user_id', 'follow_id')->withTimestamps();
+    // }
 }

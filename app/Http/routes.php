@@ -18,8 +18,10 @@ Route::get('/', function () {
 Route::get('/status/create','StatusController@create');
 Route::post('/status/store', 'StatusController@store');
 Route::get('/status/display', 'StatusController@view');
-Route::get('/follow', 'FollowerController@follow');
-Route::post('/follow','FollowerController@followUnfollow');
+Route::get('/follow', 'FollowController@canFollow');
+Route::post('/new_follow', 'FollowController@follow');
+// Route::post('/follow','FollowController@canFollow');
+Route::get('/following', 'Follow@following');
 //Route::post('/follow','FollowerController@unfollowUser');
 
 

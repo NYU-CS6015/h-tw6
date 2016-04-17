@@ -46,11 +46,16 @@
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
-                    <li><a href="/follow">Friends</a></li>
-                    <li><a href="/">Your Profile</a></li>
-                </ul>
+                @if (Auth::guest())
 
+                @else
+                  <ul class="nav navbar-nav">
+                      <li><a href="/follow">Follow</a></li>
+                      <li><a href="/follow">Following</a></li>
+                      <li><a href="/following">Followers</a></li>
+                      <li><a href="/">Your Profile</a></li>
+                  </ul>
+                @endif
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
