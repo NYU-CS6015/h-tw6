@@ -51,7 +51,7 @@ class FollowerController extends Controller
 
      public function followUnfollow(Request $request)
     {
-    	$data = Input::all();
+    	$data = Request::all();
 
     	if (Auth::check())
     	{
