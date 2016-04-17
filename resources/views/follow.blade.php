@@ -12,6 +12,7 @@
 		     <input type="hidden" name="userId" value = "{{$user->id}}"></input>
 		    <input type="submit" value="Follow" name="follow"></input>
 	        <br/>
+	        </form>
 	        @endif
 	    	@endforeach
 
