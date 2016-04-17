@@ -55,7 +55,7 @@ class FollowerController extends Controller
         	$userId = Auth::user()->id;
         }
         
-        if(isset($request->input('follow'))){
+        if(($request->input('follow')) != null ){
 
     	$followId = $request->input('userId');
         #database query to insert the user to be followed 
@@ -66,7 +66,7 @@ class FollowerController extends Controller
 
     	}
 
-    	if(isset($request->input('unfollow'))){
+    	if(($request->input('unfollow'))!= null){
     		$unfollowId = $request->input('unfollowId');
 
         $whereArray = ['user_id' => $userId, 'follow_id' => $unfollowId];
