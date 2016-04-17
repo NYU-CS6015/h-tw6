@@ -9,8 +9,7 @@
 	       	<form action="/follow" method="post">
 		    <input type="hidden" name="_token" value="{{ csrf_token() }}">
 		     <input type="hidden" name="userId" value = "{{$user->id}}"></input>
-		    <input type="submit" value="Follow"></input>
-		   </form>
+		    <input type="submit" value="Follow" name="follow"></input>
 	        <br/>
 	        @endif
 	    	@endforeach
@@ -24,15 +23,11 @@
 		    	@foreach ($followersDetail as $user)
 		        <p> User id: {{ $user->id}} <br/>
 		       	User name: {{ $user->name}} </p>
-		       	<form action="/follow" method="post">
-			    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-			    <input type="hidden" name="userId" value = "{{$user->id}}"></input>
-			    <input type="submit" value="UnFollow"></input>
+			    <input type="hidden" name="unfollowId" value = "{{$user->id}}"></input>
+			    <input type="submit" value="UnFollow" name ="unfollow"></input>
 			   </form>
 		        <br/>
 		    @endforeach
-		    @endif
-	    	
-	    	
+		    @endif	    	
    </body>
 </html>

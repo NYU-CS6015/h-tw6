@@ -49,6 +49,10 @@ class FollowerController extends Controller
 
      public function followUser(Request $request)
     {
+    	$data = Input::all();
+
+    if(isset($data['follow'])){
+    
     	if (Auth::check())
     	{
         	$userId = Auth::user()->id;
@@ -88,16 +92,19 @@ class FollowerController extends Controller
     	if($follow){
     		return view('follow',['follow' => $follow, 'followersCount'=> $followersCount,'followersDetail' => $followersDetail]);
     	}
-    	
     }
+    	
+   }
 
     public function unfollowUser(Request $request)
     {
+    	if(isset($data['unfollow'])){
+        
     	if (Auth::check())
     	{
         	$userId = Auth::user()->id;
         }
-        $unfollowId = $request->input('userId');
+        $unfollowId = $request->input('unfollowId');
 
         $whereArray = ['user_id' => $userId, 'follow_id' => $unfollowId];
 
@@ -133,7 +140,7 @@ class FollowerController extends Controller
     	if($follow){
     		return view('follow',['follow' => $follow, 'followersCount'=> $followersCount,'followersDetail' => $followersDetail]);
     	}
-    	
+    }	
     }
 
 }
