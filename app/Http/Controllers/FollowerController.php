@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use DB;
-use Input;
+use Request;
 
 class FollowerController extends Controller
 {
@@ -51,14 +51,12 @@ class FollowerController extends Controller
 
      public function followUnfollow(Request $request)
     {
-    	$data = Request::all();
-
     	if (Auth::check())
     	{
         	$userId = Auth::user()->id;
         }
         
-        if(isset($data['follow'])){
+        if(isset($request->input('follow'))){
 
     	$followId = $request->input('userId');
         #database query to insert the user to be followed 
@@ -67,7 +65,9 @@ class FollowerController extends Controller
           				'follow_id' => $followId)
     					);
 
-    	}else{
+    	}
+
+    	if(isset($request->input('unfollow'))){
     		$unfollowId = $request->input('unfollowId');
 
         $whereArray = ['user_id' => $userId, 'follow_id' => $unfollowId];
@@ -76,8 +76,6 @@ class FollowerController extends Controller
         $unfollowUser = DB::table('followers')
         				->where($whereArray)
         				->delete();
-
-
     	}
         #current total followers
        $followers = DB::table('followers')
