@@ -65,7 +65,7 @@ class FollowerController extends Controller
     					);
     	}
 
-    	if(($request->input('unfollow'))!= null){
+    	if(($request->input('unfollow')) == true){
     		$unfollowId = $request->input('unfollowId');
 
         $whereArray = ['user_id' => $userId, 'follow_id' => $unfollowId];
