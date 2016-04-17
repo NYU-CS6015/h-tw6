@@ -20,11 +20,11 @@
 	    	<br/>
 
 	    	@if($followersDetail)
-		    	@foreach ($followersDetail as $user)
-		        <p> User id: {{ $user->id}} <br/>
-		       	User name: {{ $user->name}} </p>
-			    <input type="hidden" name="unfollowId" value = "{{$user->id}}"></input>
-			    <input type="submit" value="UnFollow" name ="unfollow"></input>
+		    	@foreach ($followersDetail as $follower)
+		        <p> Follower id: {{ $follower->id}} <br/>
+		       	Follower name: {{ $follower->name}} </p>
+			    <input type="hidden" name="unfollowId" value = "{{$follower->id}}"></input>
+			    <input type="submit" value="Unfollow" name ="unfollow"></input>
 			   </form>
 		        <br/>
 		    @endforeach
