@@ -18,9 +18,6 @@
 
 	    	<p> Number of followers you have: {{$followersCount}} </p>
 	    	<br/>
-	    	<br/>
-	    	<br/>
-
 	    	@if($followersDetail)
 	    	<form action="/follow" method="post">
 		    	@foreach ($followersDetail as $follower)
