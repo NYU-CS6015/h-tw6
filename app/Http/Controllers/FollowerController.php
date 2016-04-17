@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use DB;
-use Request;
 
 class FollowerController extends Controller
 {
