@@ -19,8 +19,8 @@ Route::get('/status/create','StatusController@create');
 Route::post('/status/store', 'StatusController@store');
 Route::get('/status/display', 'StatusController@view');
 Route::get('/follow', 'FollowerController@follow');
-Route::post('/follow','FollowerController@followUser');
-Route::post('/follow','FollowerController@unfollowUser');
+Route::post('/follow','FollowerController@followUnfollow');
+//Route::post('/follow','FollowerController@unfollowUser');
 
 
 Route::auth();
