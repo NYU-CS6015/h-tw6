@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use DB;
+use App\Http\Controllers\Input;
 
 class FollowerController extends Controller
 {
@@ -58,7 +59,7 @@ class FollowerController extends Controller
         }
         
         if(isset($data['follow'])){
-        	
+
     	$followId = $request->input('userId');
         #database query to insert the user to be followed 
         $followUser = DB::table('followers')->insert(
