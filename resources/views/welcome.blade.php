@@ -52,7 +52,7 @@
                   <div class="panel-body">
                     @foreach ($statuses as $status)
                     <div class="panel panel-default">
-                      <div class="panel-heading"><p> $status->user()->get()->pluck('name') </p> </div>
+                      <div class="panel-heading"><p> {{ $status->user()->get()->pluck('name')->last() }} </p> </div>
                         <div class="panel-body">
                           {{$status->status}}
                         </div>
