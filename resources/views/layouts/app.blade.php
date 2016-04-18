@@ -51,8 +51,8 @@
                 @else
                   <ul class="nav navbar-nav">
                       <li><a href="/follow">Follow</a></li>
-                      <li><a href="/follow">Following</a></li>
-                      <li><a href="/following">Followers</a></li>
+                      <li><a href="/following">Following</a></li>
+                      <li><a href="/followers">Followers</a></li>
                       <li><a href="/">Your Profile</a></li>
                   </ul>
                 @endif

@@ -11,18 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/', 'StatusController@myFeed');
 
 Route::get('/status/create','StatusController@create');
 Route::post('/status/store', 'StatusController@store');
 Route::get('/status/display', 'StatusController@view');
 Route::get('/follow', 'FollowController@canFollow');
 Route::post('/new_follow', 'FollowController@follow');
-// Route::post('/follow','FollowController@canFollow');
-Route::get('/following', 'Follow@following');
-//Route::post('/follow','FollowerController@unfollowUser');
+Route::get('/following', 'FollowController@following');
+Route::post('/unfollow', 'FollowController@unfollow');
+Route::get('/followers', 'FollowController@myfollowers');
 
 
 Route::auth();
